@@ -1,16 +1,19 @@
-import { getTodos } from '@/lib/todos'
+import { getUsers } from '@/lib/users';
+
+import NewUserForm from './components/NewUserForm';
+import UserItem from './components/UserItem';
 import styles from './page.module.css'
 
 export default async function Home() {
-  const { todos } = await getTodos();
-  console.log(todos);
+  const { users } = await getUsers();
 
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+        <NewUserForm />
         <ul>
-          {todos?.map(todo => (
-            <p key={todo.id}>{todo.name}</p>
+          {users?.map(user => (
+            <UserItem key={user.id} user={user} />
           ))}
         </ul>
       </div>
