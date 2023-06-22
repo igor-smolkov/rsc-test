@@ -16,8 +16,7 @@ export async function readText() {
 
 export async function readText2() {
   try {
-    const p = path.join(process.cwd(), 'tmp/');
-    const text = await readFile(`${p}text2.txt`, 'utf-8');
+    const text = await readFile(`${process.env.NODE_ENV === 'development' ? '' : '/'}tmp/text2.txt`, 'utf-8');
     return { text }
   } catch (error) {
     return { error }
