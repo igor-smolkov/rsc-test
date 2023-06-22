@@ -9,7 +9,7 @@ import styles from './page.module.css'
 
 export default async function Home() {
   const { users } = await getUsers();
-  // const { text } = await readText()
+  const { text } = await readText();
   const { text: text2 } = await readText2()
 
   return (
@@ -21,7 +21,7 @@ export default async function Home() {
             <UserItem key={user.id} user={user} />
           ))}
         </ul>
-        {/* {text} */}
+        {text}
         <Download />
         <UploadForm />
         {text2}
