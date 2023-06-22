@@ -14,7 +14,7 @@ export async function readText() {
 
 export async function readText2() {
   try {
-    const text = await readFile('text2.txt', 'utf-8');
+    const text = await readFile('public/text2.txt', 'utf-8');
     return { text }
   } catch (error) {
     return { error }
